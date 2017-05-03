@@ -1,0 +1,20 @@
+{% block add_translation_form %}
+    <div class="card">
+        <div class="card-block">
+            <h6>Contribute a translation</h6>
+            <form class="form-inline" id="glossary-translations-add-form" term-id="{{ term_id }}">
+                <div class="form-group">
+                    <select class="form-control" id="new-translation-language" name="language_id">
+                        {% for language in languages %}
+                            <option value="{{ language.id }}">
+                                {{ language.full_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <input placeholder="Translated term" name="value" class="form-control"/>
+                    <button type="submit" class="form-control btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -8,8 +8,6 @@ $app->group("", function() {
         $glossaryModel = new \Glossz\Model\Glossary($this['db']);
 
         $result = $glossaryModel->listAll();
-
-        var_dump($result->getValues());
         return $this->renderer->render(
             $response, 'glossaries.twig'
         );
@@ -59,8 +57,8 @@ $app->group("", function() {
         $terms = $termModel->listAllByGlossary($glossary->getValues()[0]['id']);
         $modelResponse->addErrors($terms->getErrors());
 
-        $languages = $termModel->listAll();
-        $modelResponse->addErrors($terms->getErrors());
+        $languages = $languageModel->listAll();
+        $modelResponse->addErrors($languages->getErrors());
 
         $terms_with_translations  = [];
         foreach ($terms->getValues() as $key => $term) {
@@ -77,8 +75,6 @@ $app->group("", function() {
                 $languageBuckets[$value["full_name"]][] = $value;
             }
 
-            var_dump($languageBuckets);
-
             $terms_with_translations[] = [
                 "term" => $term,
                 "translations" => $languageBuckets
@@ -90,7 +86,8 @@ $app->group("", function() {
                 "errors" => $modelResponse->getErrors(),
                 "glossary" => $glossary->getValues(),
                 "user" => $user->getValues(),
-                "terms" => $terms_with_translations
+                "terms" => $terms_with_translations,
+                "languages" => $languages->getValues()
             ]
         ); 
     });

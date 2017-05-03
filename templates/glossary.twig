@@ -8,9 +8,10 @@
     {% endif %}
 
     {% block terms %}
-        {{ include('terms.twig', {
+        {{ include('glossary-terms.twig', {
             terms: terms,
-            translations: translations
+            translations: translations,
+            languages: languages
             }
         ) }}
     {% endblock %}

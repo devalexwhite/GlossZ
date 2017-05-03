@@ -2,9 +2,10 @@
     <ul class="terms-list">
         {% for term in terms %}
             {% block term %}
-                {{ include('term.twig', {
+                {{ include('glossary-terms-term.twig', {
                     term: term,
-                    translations: translations
+                    translations: translations,
+                    languages: languages
                     }, with_context = false) }}
             {% endblock %}
         {% endfor %}

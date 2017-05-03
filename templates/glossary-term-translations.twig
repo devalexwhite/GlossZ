@@ -6,12 +6,18 @@
             {% for translation in translation_group %}
                 <li class="list-group-item">
                     {% block translation %}
-                        {{ include('translation.twig', {
+                        {{ include('glossary-term-translations-translation.twig', {
                             translation: translation
                         }, with_context = false) }}
                     {% endblock %}
                 </li>
             {% endfor %}
+            {% block add_translation_form  %}
+                {{ include('glossary-translations-add-form.twig', {
+                    term_id: term_id,
+                    languages: languages
+                }, with_context = false) }}
+            {% endblock %}
         </ul>
     {% endfor %}
 {% endblock %}

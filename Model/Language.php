@@ -9,7 +9,8 @@
             $modelResponse = new ModelResponse();
 
             try {
-                $stmt = $this->db->prepare("SELECT * FROM language");
+                $stmt = $this->db->prepare("SELECT * FROM language
+                    ORDER BY full_name");
                 
                 $stmt->execute();
 
