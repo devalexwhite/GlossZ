@@ -1,0 +1,11 @@
+{% block messages %}
+    {% if errors %}
+        <ul class="messages-errors">
+            {% for error in errors %}
+                {% for message in error %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

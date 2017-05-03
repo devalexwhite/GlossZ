@@ -1,0 +1,24 @@
+{% block term %}
+    {% set self = term.term %}
+
+    <div class="card">
+        <div class="card-header">
+            <h3>
+                {{ self.value }}
+                <small class="text-muted">
+                    {{ term.translations|length }}
+                    translation{{ term.translations|length == 1 ? '' : 's'}}
+                </small>
+            </h3>
+        </div>
+        <div class="card-block">
+            {% if term.translations|length > 0 %}
+                {% block translations %}
+                    {{ include('translations.twig', {
+                        translations: term.translations
+                    }, with_context = false) }}
+                {% endblock %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

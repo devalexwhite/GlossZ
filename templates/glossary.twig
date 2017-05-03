@@ -1,0 +1,17 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    {% set self = glossary[0] %}
+
+    {% if self.title %}
+        <h2>{{ self.title }}</h2>
+    {% endif %}
+
+    {% block terms %}
+        {{ include('terms.twig', {
+            terms: terms,
+            translations: translations
+            }
+        ) }}
+    {% endblock %}
+{% endblock %}

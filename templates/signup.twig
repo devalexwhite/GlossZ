@@ -1,0 +1,21 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <form method="POST" action="/user/signup">
+        <div class="form-group">
+            <label for="user-username">Username</label>
+            <input value="{{ form_values['username'] ? form_values['username'] : null }}" type="text" name="username" class="form-control" id="user-username" aria-describedby="usernameHelp" placeholder="TranslatorBob">
+            <small id="usernameHelp" class="form-text text-muted">This username will be publically visible to others.</small>
+        </div>
+        <div class="form-group">
+            <label for="user-email">Email address</label>
+            <input value="{{ form_values['email'] ? form_values['email'] : null }}" type="email" name="email" class="form-control" id="user-email" placeholder="me@proz.com">
+        </div>
+        <div class="form-group">
+            <label for="user-password">Password</label>
+            <input value="{{ form_values['password'] ? form_values['password'] : null }}" type="password" name="password" class="form-control" id="user-password" aria-describedby="passwordHelp">
+            <small id="passwordHelp" class="form-text text-muted">Your password must be at least 7 characters in length.</small>
+        </div>
+        <button type="submit" class="btn btn-primary float-right">Register</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+
+            {% block styles %}
+                <link rel="stylesheet" href="/styles/bootstrap.min.css" />
+                <link rel="stylesheet" href="/styles/bootstrap-grid.min.css" />
+                <link rel="stylesheet" href="/styles/bootstrap-reboot.min.css" />
+            {% endblock %}
+
+            {% block scripts %}
+                <script src="/scripts/jquery.min.js"></script>
+                <script src="/scripts/bootstrap.min.js"></script>
+            {% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="messages">
+            {{ include("messages.twig") }}
+        </div>
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+{% block translations %}
+    {% set self = translations %}
+    {% for key,translation_group in self %}
+        <h5>{{ key }}</h5>
+        <ul class="term-translations-list list-group">
+            {% for translation in translation_group %}
+                <li class="list-group-item">
+                    {% block translation %}
+                        {{ include('translation.twig', {
+                            translation: translation
+                        }, with_context = false) }}
+                    {% endblock %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% block terms %}
+    <ul class="terms-list">
+        {% for term in terms %}
+            {% block term %}
+                {{ include('term.twig', {
+                    term: term,
+                    translations: translations
+                    }, with_context = false) }}
+            {% endblock %}
+        {% endfor %}
+    </ul>
+{% endblock %}
