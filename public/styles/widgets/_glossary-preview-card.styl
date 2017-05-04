@@ -1,0 +1,54 @@
+.glossary-preview-card {
+    position: relative;
+    width: 100%;
+
+    text-align: center;
+
+    margin-bottom: 1.5625rem;
+    padding: 0;
+
+    transition: all .5s;
+
+     @media(min-width: 768px) {
+        margin-bottom: 3.125rem;      
+        padding: .625rem 0;   
+
+        &:hover {
+            box-shadow: 10px 10px 10px $site-light;
+        }
+     }
+
+    
+    h3 {
+        margin-bottom: .3125rem;
+    }
+
+    a {
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .glossary-preview-card-header {
+        position: relative;
+
+        margin: 0 0 1.5625rem 0;
+    }
+
+    ul.glossary-preview-card-terms {
+        position: relative;
+
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+
+        li {
+            margin-bottom: .625rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

@@ -1,23 +1,18 @@
 {% block translations %}
     {% set self = translations %}
+
     {% for key,translation_group in self %}
-        <h5>{{ key }}</h5>
-        <ul class="term-translations-list list-group">
-            {% for translation in translation_group %}
-                <li class="list-group-item">
-                    {% block translation %}
+        <div class="glossary-terms-term-card" term-id="{{ term_id }}">
+            <div class="term-card-title">
+                <span>{{ key }}</span>
+            </div>
+            {% for translation in translation_group %}            
+                <div class="term-card-content">
                         {{ include('glossary-term-translations-translation.twig', {
                             translation: translation
                         }, with_context = false) }}
-                    {% endblock %}
-                </li>
+                </div>
             {% endfor %}
-            {% block add_translation_form  %}
-                {{ include('glossary-translations-add-form.twig', {
-                    term_id: term_id,
-                    languages: languages
-                }, with_context = false) }}
-            {% endblock %}
-        </ul>
+        </div>
     {% endfor %}
 {% endblock %}

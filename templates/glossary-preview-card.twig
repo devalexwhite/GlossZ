@@ -1,0 +1,29 @@
+{% block glossaryPreviewCard %}
+    {% set self = glossary["glossary"] %}
+    <div class="glossary-preview-card">
+        <a href="/glossary/{{self.id}}">
+            <div class="glossary-preview-card-header">
+                <h3>
+                    {{ self.title }}
+                </h3>
+                <h6>
+                    created by {{ self.username }}
+                </h6>
+            </div>
+            <ul class="glossary-preview-card-terms">
+                {% for term in glossary["terms"] %}
+                    <li>
+                        <p>
+                            > {{ term["term"].value }} 
+                            {% if term["translations"]|length > 0 %}
+                                (translated in {{ term["translations"]|length}} language{{ (term["translations"]|length > 1) ? "s" : ""}})
+                            {% else %}
+                                (has not yet been translated)
+                            {% endif %}
+                        </p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </a>
+    </div>
+{% endblock %}

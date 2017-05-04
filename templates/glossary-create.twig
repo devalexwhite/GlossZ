@@ -1,0 +1,36 @@
+{% extends "base.twig" %}
+
+{% block scripts %}
+    {{ parent() }}
+
+    <script src="/scripts/glossary-create-min.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="glossary-create-container">
+        <div class="glossary-create-title-bar">
+            <h3>New Glossary</h3>
+        </div>
+        <div class="glossary-create-form-container">
+            <form method="POST" action="/glossary" id="glossary-create-form">
+                <div class="form-group glossary-create-title-form-group">
+                    <h6>enter a subject for this glossary</h6>
+                    <input type="text" name="title" class="form-control" id="glossaryTitle" placeholder="e.x. medical terms"/>
+                </div>
+                <div class="form-group glossary-create-terms-form-group">
+                    <h6>add terms to the glossary:</h6>
+                    {% for x in 0..3 %}
+                        <div class="glossary-term-card {{ x==0 ? "template" : "" }}" {{ x == 0 ? "style='display: none;'" : "" }}>
+                            <input type="text" name="template" placeholder="click to edit term value" class="form-control glossary-create-term-value"/>
+                            <i class="fa fa-times glossary-create-term-delete" aria-hidden="true"></i>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="glossary-create-add-term">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                </div>
+                <div class="glossary-create-submit">create glossary</div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

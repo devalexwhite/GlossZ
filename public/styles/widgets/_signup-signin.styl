@@ -1,0 +1,73 @@
+.signup-signin-container {
+    margin: 0 1.5625rem;
+
+     @media(min-width: 768px) {
+         width: 30rem;
+
+         margin: 0 auto;
+     }
+
+     form {
+          input{
+            /* border: */
+            {inputFont}
+            
+            position: relative;
+            width: 100%;
+
+            padding: .6875rem .6875rem;
+
+            border: 1px solid $site-light;
+            border-radius: 8px;
+
+            ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+                color:$site-light;
+            }
+            :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color:$site-light;
+            opacity:  1;
+            }
+            ::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color:$site-light;
+            opacity:  1;
+            }
+            :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color:$site-light;
+            }
+
+             @media(min-width: 768px) {
+                padding: .2625rem .6875rem;                 
+             }
+        }
+     }
+
+    .submit-button {
+        {inputFont}
+        color: white;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        position: relative;
+        width: 100%;
+
+        padding: .375rem 0;
+        margin-bottom: 3.125rem;
+
+        /* border: */
+        background: $site-primary;
+        border-radius: 8px;
+
+        cursor: pointer;
+    }
+}
+
+.signup-signin-title-bar {
+    position: relative;
+    width: 100%;
+
+    margin-bottom: 3.125rem;
+
+    text-align: center;
+}

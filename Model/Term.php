@@ -88,7 +88,7 @@
                 $user_id = $_SESSION["id"];
 
                 $stmt->execute([
-                    "value" => htmlspecialchars($args["value"]),
+                    "value" => $args["value"],
                     "is_deleted" => ($args["is_deleted"] ? true : false),
                     "id" => $id,
                     "user_id" => $user_id
@@ -117,12 +117,12 @@
             $user_id = $_SESSION["id"];
 
             try {
-                $stmt = $this->db->prepare("INSERT INTO glossary 
-                    (value,glossary_id, user_id) VALUES
-                    (:value,:user_id)");
+                $stmt = $this->db->prepare("INSERT INTO term 
+                    (value,glossary_id,user_id) VALUES
+                    (:value,:glossary_id,:user_id)");
                 
                 $stmt->execute([
-                    "value" => htmlspecialchars($args["value"]),
+                    "value" => $args["value"],
                     "glossary_id" => $glossary_id,
                     "user_id" => $user_id
                 ]);

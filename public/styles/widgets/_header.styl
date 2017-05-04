@@ -1,0 +1,57 @@
+.header-bar {
+    margin: 1.5625rem 0 1.5625rem 0;
+
+     @media(min-width: 768px) {
+        margin: 1.5625rem 0 3.125rem 0;         
+     }
+
+    .header-text {
+        margin: 0 0 1.5625rem 0;
+        text-align: center;
+
+        h1 {
+            margin: 0 0 .625rem 0;
+        }
+    }
+    .header-menu {
+        position: relative;
+        width: 100%;
+
+        ul {
+            list-style: none;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            margin: 0 auto;
+            padding: .625rem 0 0 0;
+
+            position: relative;
+            max-width: 700px;
+
+
+
+            @media(min-width: 768px) {
+                border-top: 1px solid $site-light;
+                flex-direction: row;                
+            }
+
+
+            li {
+                margin: 0 1.5625rem;
+
+                position: relative;
+            }
+        }
+        a {
+            {menubarFont}
+            text-decoration: none;
+
+            &:hover {
+                color: $site-primary;
+            }
+        }
+    }
+}

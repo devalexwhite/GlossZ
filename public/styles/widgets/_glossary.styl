@@ -1,0 +1,60 @@
+.glossary-container {
+    margin: 0 1.5625rem;
+
+     @media(min-width: 768px) {
+         width: 30rem;
+
+         margin: 0 auto;
+     }
+}
+
+.glossary-title-bar {
+    position: relative;
+    width: 100%;
+
+    margin-bottom: 3.125rem;
+
+    text-align: center;
+
+    h3 {
+        position: relative;
+
+        margin-bottom: .3125rem;
+
+        display: inline-block;
+    }
+
+    .glossary-title-bar-actions {
+        display: block;
+
+        margin-bottom: .625rem;
+
+        @media(min-width: 768px) {
+            display: flex;
+
+            margin: 0;
+
+            position: absolute;
+            top: 0;
+            right: -60px;
+        }
+        i {
+            margin-right: .3125rem;
+
+            font-size: 1.875rem;
+
+            color: $site-primary;
+
+            cursor: pointer;
+
+
+            @media(min-width: 768px) {
+                font-size: 1.25rem;                
+            }
+
+            &:hover {
+                color: $site-dark;
+            }
+        }
+    }
+}

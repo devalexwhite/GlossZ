@@ -3,16 +3,36 @@
 {% block content %}
     {% set self = glossary[0] %}
 
-    {% if self.title %}
-        <h2>{{ self.title }}</h2>
-    {% endif %}
+    <div class="glossary-container">
+        <div class="glossary-title-bar">
+            {% if edit_enabled %}
+                <div class="glossary-title-bar-actions hidden-md-up">
+                        <i class="fa fa-pencil glossary-enable-edit" aria-hidden="true"></i>
+                        <i class="fa fa-trash glossary-delete" aria-hidden="true"></i>
+                </div>
+            {% endif %}
+            <h3>
+                <span id="glossary-title">{{ self.title }}</span>
+                {% if edit_enabled %}
+                    <div class="glossary-title-bar-actions hidden-sm-down">
+                            <i class="fa fa-pencil glossary-enable-edit" aria-hidden="true"></i>
+                            <i class="fa fa-trash glossary-delete" aria-hidden="true"></i>
+                    </div>
+                {% endif %}
+            </h3>
+            <h6>created by {{ user.username }}</h6>
+        </div>
 
-    {% block terms %}
-        {{ include('glossary-terms.twig', {
-            terms: terms,
-            translations: translations,
-            languages: languages
-            }
-        ) }}
-    {% endblock %}
+        <div class="glossary-terms-container">
+            {% block terms %}
+                {{ include('glossary-terms.twig', {
+                    terms: terms,
+                    translations: translations,
+                    languages: languages,
+                    edit_enabled: edit_enabled
+                    }
+                ) }}
+            {% endblock %}
+        </div>
+    </div>
 {% endblock %}

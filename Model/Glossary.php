@@ -28,14 +28,55 @@
             return $modelResponse; 
         }
 
-        public function listAll(): ModelResponse {
+        public function listAll($search = null): ModelResponse {
             $modelResponse = new ModelResponse();
 
             try {
-                $stmt = $this->db->prepare("SELECT * FROM glossary
-                    WHERE is_deleted=false");
+                if(!isset($search) || $search == "") {
+                    $stmt = $this->db->prepare("SELECT 
+                        g.id, g.title, g.user_id,u.username FROM glossary g
+                        INNER JOIN user u on u.id=g.user_id
+                        WHERE g.is_deleted=false");
+                    
+                    $stmt->execute();
+                }
+                else {
+                    $search = "%$search%";
+                    $stmt = $this->db->prepare("SELECT 
+                        g.id, g.title, g.user_id,u.username FROM glossary g
+                        INNER JOIN user u on u.id=g.user_id
+                        WHERE g.is_deleted=false AND
+                        (g.title LIKE :search OR
+                        u.username LIKE :search)");
+                    
+                    $stmt->execute([
+                        "search" => $search
+                    ]);
+                }
+
+                $modelResponse->addValues($stmt->fetchAll());
+            }
+            catch(PDOException $Exception) {
+                $modelResponse->addErrors([
+                    "PDOException" => [$Exception->getMessage()]
+                ]);
+            }
+
+            return $modelResponse;
+        }
+
+        public function listAllByUser($user_id): ModelResponse {
+            $modelResponse = new ModelResponse();
+            try {
+                $stmt = $this->db->prepare("SELECT 
+                    g.id, g.title, g.user_id,u.username FROM glossary g
+                    INNER JOIN user u on u.id=g.user_id
+                    WHERE g.is_deleted=false AND
+                    g.user_id=:user_id");
                 
-                $stmt->execute();
+                $stmt->execute([
+                    "user_id" => $user_id
+                ]);
 
                 $modelResponse->addValues($stmt->fetchAll());
             }
@@ -65,7 +106,7 @@
                 $user_id = $_SESSION["id"];
 
                 $stmt->execute([
-                    "title" => htmlspecialchars($args["title"]),
+                    "title" => $args["title"],
                     "is_deleted" => ($args["is_deleted"] ? true : false),
                     "id" => $id,
                     "user_id" => $user_id
@@ -99,7 +140,7 @@
                     (:title,:user_id)");
                 
                 $stmt->execute([
-                    "title" => htmlspecialchars($args["title"]),
+                    "title" => $args["title"],
                     "user_id" => $user_id
                 ]);
                 

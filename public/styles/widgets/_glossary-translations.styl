@@ -1,0 +1,86 @@
+#glossary-translations-add-form {
+    @media(min-width: 768px) {
+        margin: 0 2.5rem;
+    }
+
+    .new-translation-language-container {
+        position: relative;
+        display: inline-block;
+
+        i {
+            position: absolute;
+            right: 1.25rem;
+            top: calc(50% - 7.5px);
+            transform: translateY(-50%);
+
+            font-size: 1.625rem;
+            color: $site-light;
+
+            pointer-events: none;
+        }
+    }
+
+    .glossary-translations-add-button {
+        {inputFont}
+        color: white;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        position: relative;
+        width: 100%;
+
+        padding: .4375rem 0;
+        margin: 0;
+
+        /* border: */
+        background: $site-primary;
+        border-radius: 8px;
+
+        cursor: pointer;
+    }
+
+    input {
+        margin: 0 0 .9375rem 0;        
+    }
+
+    select {
+        /* border: */
+        {inputFont}
+
+        -webkit-appearance: none; 
+        -moz-appearance: none;
+        appearance: none;       /* remove default arrow */
+        background-color: none;
+        background-image: none;
+        
+        position: relative;
+        width: 100%;
+
+        padding: .6875rem .6875rem;
+        margin: 0 0 .9375rem 0;
+
+        border: 1px solid $site-light;
+        border-radius: 8px;
+
+        ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+            color:$site-light;
+        }
+        :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color:$site-light;
+        opacity:  1;
+        }
+        ::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color:$site-light;
+        opacity:  1;
+        }
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color:$site-light;
+        }
+
+        @media(min-width: 768px) {
+            padding: .2625rem .6875rem;                 
+        }
+    }
+}

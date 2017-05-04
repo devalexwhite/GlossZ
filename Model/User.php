@@ -10,7 +10,7 @@
             $modelResponse = new ModelResponse();
 
             try {
-                $stmt = $this->db->prepare("SELECT username,email FROM user
+                $stmt = $this->db->prepare("SELECT id,username,email FROM user
                     WHERE id=:id");
                 
                 $stmt->execute([
@@ -33,7 +33,7 @@
                 session_start();
             }
 
-            if(isset($_SESSION["username"])) {
+            if(isset($_SESSION["username"]) && isset($_SESSION["id"])) {
                 return true;
             }
             else {
@@ -56,7 +56,7 @@
                     LIMIT 1");
                 
                 $stmt->execute([
-                    "username" => htmlspecialchars($args["username"])
+                    "username" => $args["username"]
                 ]);
                 
                 $result = $stmt->fetch();
@@ -97,13 +97,21 @@
                     (:username,:email,:hashed_password)");
                 
                 $stmt->execute([
-                    "username" => htmlspecialchars($args["username"]),
-                    "email" => htmlspecialchars($args["email"]),
+                    "username" => $args["username"],
+                    "email" => $args["email"],
                     "hashed_password" => $hashed_password
                 ]);
                 
+                $uid = $this->db->lastInsertId();
+
+                if (session_status() == PHP_SESSION_NONE) {
+                    session_start();
+                }
+                $_SESSION["username"] = $args["username"];
+                $_SESSION["id"] = $uid;
+
                 $modelResponse->addValues([
-                    "id" => $this->db->lastInsertId()
+                    "id" => $uid
                 ]);
             }
             catch(PDOException $Exception) {

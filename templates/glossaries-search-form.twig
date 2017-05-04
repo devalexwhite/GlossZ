@@ -1,0 +1,8 @@
+{% block glossariesSearchForm %}
+    <form action="/" method="GET" class="mb-4 mt-4 glossaries-search-form">
+        <div class="form-group">
+            <input value="{{ search }}" type="text" class="form-control mb-2" name="search" placeholder="Search by subject or author">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+    </form>
+{% endblock %}

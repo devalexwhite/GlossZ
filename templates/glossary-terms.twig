@@ -1,12 +1,13 @@
 {% block terms %}
-    <ul class="terms-list">
+    <ul class="glossary-terms-list">
         {% for term in terms %}
             {% block term %}
                 {{ include('glossary-terms-term.twig', {
                     term: term,
                     translations: translations,
-                    languages: languages
-                    }, with_context = false) }}
+                    languages: languages,
+                    edit_enabled: edit_enabled
+                    }) }}
             {% endblock %}
         {% endfor %}
     </ul>

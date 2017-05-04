@@ -1,0 +1,26 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="user-profile-container">
+        <div class="user-profile-header">
+            <h3>
+                {{ user.username }}
+            </h3>
+            <h6>
+            {{ (glossaries|length > 0) ? glossaries|length : "No" }}
+                {{ (glossaries|length > 1 or glossaries|length == 0) ? "glossaries" : "glossary"}}
+                created
+            </h6>
+        </div>
+        <ul class="user-glossary-list">
+            {% for glossary in glossaries %}
+                <li>
+                    <a href="/glossary/{{ glossary.id }}">
+                        <p>> {{ glossary.title }}</p>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}

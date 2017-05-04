@@ -1,0 +1,33 @@
+{% block header %}
+    <div class="header-bar">
+        <div class="header-text">
+            <h1>GlossZ</h1>
+            <h2 class="hidden-sm-down">Community driven translation glossaries.</h2>
+        </div>
+        <div class="header-menu">
+            <ul class="header-menu-list">
+                <li>
+                    <a href="/">home</a>
+                </li>
+                <li>
+                    <a href="/glossary">create glossary</a>
+                </li>
+                {% if session_id %}
+                    <li>
+                        <a href="/user">profile</a>
+                    </li>
+                    <li>
+                        <a href="/user/logout">logout</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="/user/login">login</a>
+                    </li>
+                    <li>
+                        <a href="/user/signup">signup</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

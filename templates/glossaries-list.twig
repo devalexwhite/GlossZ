@@ -1,0 +1,11 @@
+{% block glossariesList %}
+    <ul class="glossaries-list">
+        {% for glossary in glossaries %}
+            <li>
+                {{ include('glossary-preview-card.twig', {
+                    glossary: glossary
+                }, with_context = false) }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

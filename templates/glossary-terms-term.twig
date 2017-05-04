@@ -1,23 +1,29 @@
 {% block term %}
     {% set self = term.term %}
 
-    <div class="card">
-        <div class="card-header">
-            <h3>
-                {{ self.value }}
-            </h3>
-        </div>
-        <div class="card-block">
-            {% if term.translations|length > 0 %}
-                <h3>Translations</h3>
-                {% block translations %}
-                    {{ include('glossary-term-translations.twig', {
-                        translations: term.translations,
-                        term_id: self.id,
-                        languages: languages
-                    }, with_context = false) }}
-                {% endblock %}
-            {% endif %}
-        </div>
+    <div class="glossary-terms-term-group">
+        <h4>{{ self.value }}</h4>
     </div>
+
+    <div class="glossary-terms-term-translations" term-id="{{ self.id }}">
+        {% block translations %}
+            {{ include('glossary-term-translations.twig', {
+                translations: term.translations
+            }, with_context = false) }}
+        {% endblock %}
+    </div>
+    {% if session_id %}
+        <div class="glossary-terms-term-contribute-form glossary-terms-term-card">
+            <div class="term-card-title">
+                <span>Contribute Translation</span>
+            </div>
+            <div class="term-card-content">
+                {{ include('glossary-translations-add-form.twig', {
+                    term_id: self.id,
+                    languages: languages
+                }, with_context = false) }}
+            </div>
+        </div>
+    {% endif %}
+
 {% endblock %}

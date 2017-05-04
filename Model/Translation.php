@@ -87,8 +87,8 @@
                     language_id=:language_id");
                 
                 $stmt->execute([
-                    "term_id" => htmlspecialchars($term_id),
-                    "language_id" => htmlspecialchars($language_id)
+                    "term_id" => $term_id,
+                    "language_id" => $language_id
                 ]);
 
                 $modelResponse->addValues($stmt->fetchAll());
@@ -120,8 +120,8 @@
                 $user_id = $_SESSION["id"];
 
                 $stmt->execute([
-                    "value" => htmlspecialchars($args["value"]),
-                    "language_id" => htmlspecialchars($args["language_id"]),
+                    "value" => $args["value"],
+                    "language_id" => $args["language_id"],
                     "is_deleted" => ($args["is_deleted"] ? true : false),
                     "id" => $id,
                     "user_id" => $user_id
@@ -152,11 +152,11 @@
             try {
                 $stmt = $this->db->prepare("INSERT INTO translation 
                     (value,term_id, language_id, user_id) VALUES
-                    (:value, :language_id, :user_id)");
+                    (:value, :term_id, :language_id, :user_id)");
                 
                 $stmt->execute([
-                    "value" => htmlspecialchars($args["value"]),
-                    "language_id" => htmlspecialchars($args["language_id"]),
+                    "value" => $args["value"],
+                    "language_id" => $args["language_id"],
                     "term_id" => $term_id,
                     "user_id" => $user_id
                 ]);

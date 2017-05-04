@@ -1,0 +1,133 @@
+ input[type="text"] {
+    /* border: */
+    {inputFont}
+    
+    position: relative;
+    width: 100%;
+
+    padding: .6875rem .6875rem;
+
+    border: 1px solid $site-light;
+    border-radius: 8px;
+
+    ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        color:$site-light;
+    }
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:$site-light;
+    opacity:  1;
+    }
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:$site-light;
+    opacity:  1;
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:$site-light;
+    }
+
+    @media(min-width: 768px) {
+        padding: .2625rem .6875rem;                 
+    }
+}
+
+.glossary-create-container {
+    margin: 0 1.5625rem;
+
+     @media(min-width: 768px) {
+         width: 30rem;
+
+         margin: 0 auto;
+     }
+}
+
+.glossary-create-title-bar {
+    position: relative;
+    width: 100%;
+
+    text-align: center;
+
+    margin-bottom: 3.125rem;
+}
+
+.glossary-create-form-container {
+    position: relative;
+    width: 100%;
+}
+
+.glossary-term-card {
+    position: relative;
+
+    margin-bottom: .9375rem;
+    padding: .3125rem;
+
+    box-shadow: 2px 2px 5px 0 rgba(129,129,129,0.39);
+
+    input[type="text"] {
+        border-style: none;
+    }
+
+    .glossary-create-term-delete {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: .9375rem;
+
+        font-size: 1.625rem;
+        color: $site-primary;
+
+        cursor: pointer;
+    }
+}
+
+.glossary-create-add-term {
+    position: relative;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 3.125rem;
+
+    i {
+        font-size: 1.875rem;
+        color: $site-dark;
+
+        cursor: pointer;
+    }
+}
+
+.glossary-create-submit {
+    {inputFont}
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    width: 100%;
+
+    padding: .375rem 0;
+    margin-bottom: 3.125rem;
+
+    /* border: */
+    background: $site-primary;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.glossary-create-title-form-group{
+    margin-bottom: 3.125rem;
+}
+
+.glossary-create-terms-form-group {
+    margin-bottom: 1.5625rem;
+}
+
+.form-group {
+    h6 {
+        margin-bottom: .9375rem;
+    }
+}

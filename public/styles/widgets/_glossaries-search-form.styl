@@ -1,0 +1,60 @@
+form.glossaries-search-form {
+    position: relative;
+
+    margin: 0 1.5625rem;
+    padding: 0;
+
+     @media(min-width: 768px) {
+        width: 25rem;         
+        margin: 0 auto 0 auto;
+     }
+
+    .form-group {
+        width: 100%;
+        position: relative;
+
+        input[type="text"] {
+            /* border: */
+            {inputFont}
+            
+            position: relative;
+            width: 100%;
+
+            padding: .6875rem .6875rem;
+
+            border: 1px solid $site-light;
+            border-radius: 8px;
+
+            ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+                color:$site-light;
+            }
+            :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+            color:$site-light;
+            opacity:  1;
+            }
+            ::-moz-placeholder { /* Mozilla Firefox 19+ */
+            color:$site-light;
+            opacity:  1;
+            }
+            :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color:$site-light;
+            }
+
+             @media(min-width: 768px) {
+                padding: .2625rem .6875rem;                 
+             }
+        }
+
+        i {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: .9375rem;
+
+            font-size: 1.625rem;
+            color: $site-light;
+
+            cursor: pointer;
+        }
+    }
+}
