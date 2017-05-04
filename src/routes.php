@@ -437,4 +437,32 @@ $app->group("/user", function() {
 
         return $response->withHeader('Location', "/user");
     })->add(\Glossz\Model\User::validate());
+$this->get('/{id}', function($request, $response, $args) {
+        $modelResponse = new \Glossz\Model\ModelResponse($this['db']);
+        $userModel = new \Glossz\Model\User($this['db']);
+        $glossaryModel = new \Glossz\Model\Glossary($this['db']);
+
+        $user_id = $args['id'];
+
+        $user = $userModel->listOne($user_id);
+        if($user->hasErrors()) {
+            $modelResponse->addErrors($user->getErrors());
+        }
+
+        $user = $user->getValues()[0];
+
+        $glossaries = $glossaryModel->listAllByUser($user["id"]);
+        if($glossaries->hasErrors()) {
+            $modelResponse->addErrors($glossaries->getErrors());
+        }
+        $glossaries = $glossaries->getValues();
+
+       return $this->renderer->render(
+            $response, 'user-profile.twig', [
+                "user" => $user,
+                "glossaries" => $glossaries
+            ]
+        );
+
+    });
 });

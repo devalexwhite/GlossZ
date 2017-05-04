@@ -1,5 +1,17 @@
 {% extends "base.twig" %}
 
+{% block title %}
+{{ user.username }}'s Profile
+{% endblock %}
+
+{% block metadata %}
+    {% set meta_title = "GlossZ: #{user.username}'s Profile"  %}
+    {% set meta_description = "#{user.username} has created #{glossaries|length} #{(glossaries|length==1 ? 'glossary' : 'glossaries')} on GlossZ" %}
+    {% set meta_website = "https://glossz.whotofollow.co/user/#{user.id}" %}
+
+    {{ parent() }}
+{% endblock %}
+
 {% block content %}
     <div class="user-profile-container">
         <div class="user-profile-header">

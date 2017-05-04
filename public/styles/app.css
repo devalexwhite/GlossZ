@@ -360,6 +360,9 @@ ul.glossary-terms-list {
 .glossary-terms-term-card .term-card-content + .term-card-content {
   border-top: solid 1px #e6e6e6;
 }
+.glossary-terms-term-translations p {
+  margin-bottom: 1.5625rem;
+}
 @media (min-width: 768px) {
   #glossary-translations-add-form {
     margin: 0 2.5rem;
@@ -475,6 +478,10 @@ ul.glossary-terms-list {
   position: relative;
   margin-bottom: 0.3125rem;
   display: inline-block;
+}
+.glossary-title-bar h6 a {
+  color: inherit;
+  text-decoration: underline;
 }
 .glossary-title-bar .glossary-title-bar-actions {
   display: block;

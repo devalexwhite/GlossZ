@@ -1,5 +1,19 @@
 {% extends "base.twig" %}
 
+{% block title %}
+{{ glossary[0].title }}
+{% endblock %}
+
+{% block metadata %}
+    {% set title = glossary[0].title %}
+    {% set numTerms = (terms|length) %}
+    {% set meta_title = "GlossZ: #{title}"  %}
+    {% set meta_description = "#{user.username}'s glossary on GlossZ with translations for #{numTerms} terms." %}
+    {% set meta_website = "https://glossz.whotofollow.co/glossary/#{glossary[0].id}" %}
+
+    {{ parent() }}
+{% endblock %}
+
 {% block content %}
     {% set self = glossary[0] %}
 
@@ -20,7 +34,11 @@
                     </div>
                 {% endif %}
             </h3>
-            <h6>created by {{ user.username }}</h6>
+            <h6>created by 
+                <a href="/user/{{ user.id }}">
+                    {{ user.username }}
+                </a>
+            </h6>
         </div>
 
         <div class="glossary-terms-container">

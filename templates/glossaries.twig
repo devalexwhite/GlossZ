@@ -1,5 +1,16 @@
 {% extends "base.twig" %}
 
+{% block title %}
+Home
+{% endblock %}
+
+{% block metadata %}
+    {% set meta_title = "GlossZ" %}
+    {% set meta_description = "Community driven translation glossaries." %}
+
+    {{ parent() }}
+{% endblock %}
+
 {% block content %}
     <div class="glossaries-list-container">
         {{ include('glossaries-search-form.twig') }}
