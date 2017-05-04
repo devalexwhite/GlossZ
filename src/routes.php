@@ -2,6 +2,25 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
+// Route for sitemap
+$app->get("/sitemap.xml", function($request, $response, $args) {
+    $glossaryModel = new \Glossz\Model\Glossary($this['db']);
+    $userModel = new \Glossz\Model\User($this['db']);
+
+    $glossaries = $glossaryModel->listAll();
+    $users = $userModel->listAll();
+
+    $glossaries = $glossaries->getValues();
+    $users = $users->getValues();
+
+    $sitemap = new \Glossz\Helpers\SitemapGenerator($users, $glossaries);
+
+    $sitemap = $sitemap();
+
+
+    return $response->withHeader('Content-type', 'text/xml')->write($sitemap);
+});
+
 // Terms routes
 $app->group("/term", function() {
     $this->get("/{tid}/translation", function($request, $response, $args) {

@@ -28,6 +28,26 @@
             return $modelResponse; 
         }
 
+        public function listAll(): ModelResponse {
+            $modelResponse = new ModelResponse();
+
+            try {
+                $stmt = $this->db->prepare("SELECT id,created_at,updated_at
+                FROM user");
+                
+                $stmt->execute();
+
+                $modelResponse->addValues($stmt->fetchAll());
+            }
+            catch(PDOException $Exception) {
+                $modelResponse->addErrors([
+                    "PDOException" => [$Exception->getMessage()]
+                ]);
+            }
+
+            return $modelResponse; 
+        }
+
         public function userLoggedIn(): bool {
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();

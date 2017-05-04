@@ -28,7 +28,7 @@
             <meta property="og:title" content="{{meta_title ? meta_title : 'GlossZ'}}" />
             <meta property="og:type" content="{{ meta_type ? meta_type : 'website'}}" />
             <meta property="og:url" content="{{ meta_website ? meta_website : 'https://glossz.whotofollow.co'}}" />
-            <meta property="og:image" content="https://example.com/image.jpg" /> 
+            <meta property="og:image" content="https://glossz.whotofollow.co/images/facebookcard.png" /> 
             <meta property="og:description" content="{{meta_description ? meta_description : 'Community driven translation glossaries.'}}" /> 
             <meta property="og:site_name" content="GlossZ" /> 
             <!-- Twitter Card data -->
@@ -38,12 +38,12 @@
             <meta name="twitter:description" content="{{meta_description ? meta_description : 'Community driven translation glossaries.'}}">
             <meta name="twitter:creator" content="@AlexWhiteDev">
             <!-- Twitter Summary card images must be at least 120x120px --> 
-            <meta name="twitter:image" content="https://example.com/image.jpg">
+            <meta name="twitter:image" content="https://glossz.whotofollow.co/images/twittercard.png">
         {% endblock %}
 
-        {% block head %}
-
             <link href="https://glossz.whotofollow.co/" rel="canonical" />
+
+        {% block head %}
 
             {% block styles %}
                 <link rel="stylesheet" href="/styles/bootstrap.min.css" />

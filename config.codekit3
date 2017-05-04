@@ -85,6 +85,12 @@
 		"oAP": "\/Helpers\/AuthMiddleware.php",
 		"oF": 0
 		},
+	"\/Helpers\/SitemapGenerator.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/Helpers\/SitemapGenerator.php",
+		"oF": 0
+		},
 	"\/logs": {
 		"ft": 65536,
 		"oA": 1,
@@ -435,10 +441,38 @@
 		"oT": 1,
 		"q": 100
 		},
+	"\/public\/images\/facebookcard.png": {
+		"ft": 32768,
+		"iS": 30245,
+		"oA": 0,
+		"oAP": "\/public\/images\/facebookcard.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/public\/images\/twittercard.png": {
+		"ft": 32768,
+		"iS": 8052,
+		"oA": 0,
+		"oAP": "\/public\/images\/twittercard.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/public\/index.php": {
 		"ft": 8192,
 		"oA": 2,
 		"oAP": "\/public\/index.php",
+		"oF": 0
+		},
+	"\/public\/robots.txt": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/public\/robots.txt",
 		"oF": 0
 		},
 	"\/public\/scripts\/bootstrap.min.js": {
@@ -494,6 +528,12 @@
 		"oF": 1,
 		"sC": 3,
 		"tS": 1
+		},
+	"\/public\/sitemap.php": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/public\/sitemap.php",
+		"oF": 0
 		},
 	"\/public\/styles\/_colors.styl": {
 		"aP": 0,

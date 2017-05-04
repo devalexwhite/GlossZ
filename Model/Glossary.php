@@ -34,7 +34,7 @@
             try {
                 if(!isset($search) || $search == "") {
                     $stmt = $this->db->prepare("SELECT 
-                        g.id, g.title, g.user_id,u.username FROM glossary g
+                        g.updated_at,g.created_at,g.id, g.title, g.user_id,u.username FROM glossary g
                         INNER JOIN user u on u.id=g.user_id
                         WHERE g.is_deleted=false");
                     
