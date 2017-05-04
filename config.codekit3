@@ -451,6 +451,28 @@
 		"rFN": 0,
 		"uCM": 0
 		},
+	"\/repo_images\/glossz_logo.png": {
+		"ft": 32768,
+		"iS": 4797,
+		"oA": 0,
+		"oAP": "\/repo_images\/glossz_logo.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/repo_images\/glossz_screenshot.png": {
+		"ft": 32768,
+		"iS": 68903,
+		"oA": 0,
+		"oAP": "\/repo_images\/glossz_screenshot.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/src\/dependencies.php": {
 		"ft": 8192,
 		"oA": 1,

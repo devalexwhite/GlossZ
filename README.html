@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+<p><img src="https://github.com/toaster99/GlossZ/raw/master/repo_images/glossz_logo.png" alt="glossz logo" />
+glossz.whotofollow.co](glossz.whotofollow.co)
+A PHP, MySQL, Twig miniature translations glossary.
+<img src="https://github.com/toaster99/GlossZ/raw/master/repo_images/glossz_screenshot.png" alt="glossz logo" /></p>
+
+<h2 id="about">### About</h2>
+
+<p>GlossZ allows the creation of miniature term glossaries. Authenticated users can create glossaries with 3&#8211;5 terms inside them and contribute term translations to their glossary or glossaries created by other users.</p>
+
+<h2 id="functionality">### Functionality</h2>
+
+<h5 id="glossaries">Glossaries</h5>
+
+<p>Authenticated and public users are able to browse and search glossaries. Searching glossaries does partial matches on the author&#8217;s username and the title of the glossary.</p>
+
+<p>Authenticated users have the ability to create a glossary. Created glossaries must have 3&#8211;5 terms in them. </p>
+
+<h5 id="translations">Translations</h5>
+
+<p>An authenticated user has the ability to contribute a translation in any supported language to a term in a glossary they have created or that was created by another user. The list of supported languages was taken from the &#8220;Native Language&#8221; selection box on the ProZ user profile edit screen.</p>
+
+<h2 id="technology">### Technology</h2>
+
+<h5 id="backend">Backend</h5>
+
+<p>For the server, GlossZ is built on PHP with the <a href="https://www.slimframework.com">Slim Framework</a> and MySQL. The Slim Framework was chosen to make creating new routes faster, to provide a basic organization to the project, and to allow the usage of authentication and validation middleware. Whereas many frameworks dictate all aspects of your project, Slim gives you the basic features and suggestions for organization while leaving a majority of the decisions to the developer.</p>
+
+<p>MySQL was chosen as it provides a robust database system that is widely supported on third-party hosting solutions.</p>
+
+<h5 id="frontend">Frontend</h5>
+
+<p>GlossZ&#8217;s frontend was developed using <a href="http://twig.sensiolabs.org">Twig Templates</a>, <a href="http://v4-alpha.getbootstrap.com">Bootstrap 4</a>, <a href="http://jquery.com">jQuery</a>, <a href="http://fontawesome.io">FontAwesome</a>, <a href="https://fonts.google.com">Google Fonts</a> and <a href="http://sass-lang.com">SASS</a>.</p>
+
+<p>Twig was chosen for this project due to its modular nature and ability to be rendered from PHP with variables passed from a controller. This allows for the implementation of routes within the PHP application that generate dynamic HTML templates rendered from Twig files.</p>
+
+<p>Bootstrap was used to speed up frontend implementation while maintaining a responsive, modern design. Customizations to the Bootstrap theme were done through CSS generated from compiled SASS files. The usage of SASS gives flexibility in the design by breaking it down into components and by setting fonts/colors through easily changed variables.</p>
+
+<p>jQuery was leveraged to provide a seamless, AJAX driven interface. This allows users to perform actions (such as adding a translation to a glossary&#8217;s term, or searching the glossary directory) and see results without performing a page post-back. jQuery was chosen over larger solutions (such as React or Vue.js) due to the size and time constraints of the project. React/Vue are wonderful for large-scale projects with numerous data-driven components, whereas jQuery is perfect for rapid development of projects that don&#8217;t consist of as many components.</p>
+
+<p>Google Fonts and FontAwesome were used to make the design more aesthetically pleasing and to draw attention to certain interface elements.</p>
+
+<h5 id="hosting">Hosting</h5>
+
+<p>GlossZ is deployed on a VPS from <a href="http://cloudways.com">Cloudways</a>. GlossZ implements GIT deployment from this repository to the server. Composer is used to mangage dependincies for the project, and <a href="http://phinx.org">Phinx</a> is used to handle database migrations/seeding. The site uses SSL provided by <a href="https://letsencrypt.org">Let&#8217;s Encrypt</a>.</p>
+
+<h2 id="authentication">### Authentication</h2>
+
+<p>When a user creates an account on GlossZ, their username, email, and password are stored in the database. The password is hashed using the <code>password_hash</code> method. User states are stored in the PHP session. Certain areas or actions on the application are protected by a custom Slim middleware component that verifies a user is authenticated.</p>
+
+<p>GlossZ also implements the ProZ sign-on API. Using this method, a user&#8217;s account is created as normal on login, but instead of being assigned a password it is linked to their ProZ account.</p>
+
+<h2 id="seo">### SEO</h2>
+
+<p>GlossZ was developed with SEO in mind. All pages include standard meta-tags for Open graph and Twitter. <a href="https://developers.google.com/search/docs/guides/intro-structured-data?visit_id=1-636294135622044242-3223157338&amp;hl=en&amp;rd=1">Google structured data</a> is also implemented to improve appearance within search engines. GlossZ was designed so that content is visible without relying on Javascript. CSS and Javascript files have been minified and combined to improve page loading. The site is fully responsive and has appropriate meta tags for mobile devices. A sitemap.xml file is present for indexing.</p>
+
+<h2 id="integrationwithprozservices">### Integration with ProZ services</h2>
+
+<p>The ProZ service &#8216;KudoZ&#8217; is a perfect companion to GlossZ. KudoZ allows users to contribute translations to a term/sentence/paragraph. The functionality present in GlossZ would allow users to create collections of content centered around a single theme. Users would then be able to provide translations to the content within these collections. An example of this could be as follows: A user wants to gather translations for various greetings across numerous languages. The user creates a collection titled &#8216;Greetings&#8217; and adds various English greetings to the collection (&#8216;Hello, how are you doing today?&#8217;, &#8216;Good morning!&#8217;, etc.). The collection resembles a glossary from the GlossZ application. Users can now contribute translations with associated confidence score to the content within the collection. This would resemble the KudoZ functionality.</p>
+
+<h2 id="glosszapi">### GlossZ API</h2>
+
+<p>GlossZ was developed so that it could easily be used in other first-party or third-party services. Through the usage of Slim and routes, the application has an exposed REST API. This could be consumed by a mobile application or used to integrate GlossZ content into other web applications.</p>
+
+</body>
+</html>
