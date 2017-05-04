@@ -1,5 +1,6 @@
 
 ![glossz logo](https://github.com/toaster99/GlossZ/raw/master/repo_images/glossz_logo.png)
+
 [glossz.whotofollow.co](glossz.whotofollow.co)
 A PHP, MySQL, Twig miniature translations glossary.
 ![glossz logo](https://github.com/toaster99/GlossZ/raw/master/repo_images/glossz_screenshot.png)
