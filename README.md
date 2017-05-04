@@ -1,10 +1,10 @@
 
 ![glossz logo](https://github.com/toaster99/GlossZ/raw/master/repo_images/glossz_logo.png)
-glossz.whotofollow.co](glossz.whotofollow.co)
+
+[glossz.whotofollow.co](glossz.whotofollow.co)
+
 A PHP, MySQL, Twig miniature translations glossary.
 ![glossz logo](https://github.com/toaster99/GlossZ/raw/master/repo_images/glossz_screenshot.png)
-### About
----
 GlossZ allows the creation of miniature term glossaries. Authenticated users can create glossaries with 3-5 terms inside them and contribute term translations to their glossary or glossaries created by other users.
 ### Functionality
 ---
