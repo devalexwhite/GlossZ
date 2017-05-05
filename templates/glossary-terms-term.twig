@@ -6,16 +6,12 @@
     </div>
 
     <div class="glossary-terms-term-translations" term-id="{{ self.id }}">
-        {% if translations|length > 0 %}
             {{ include('glossary-term-translations.twig', {
                 translations: term.translations
             }, with_context = false) }}
-        {% else %}
-            <p>No translations yet, try adding one!</p>
-        {% endif %}
     </div>
     {% if session_id %}
-        <div class="glossary-terms-term-contribute-form glossary-terms-term-card">
+        <div class="glossary-terms-term-contribute-form glossary-terms-term-card" term-id="{{ self.id }}">
             <div class="term-card-title">
                 <span>Contribute Translation</span>
             </div>

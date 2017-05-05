@@ -364,15 +364,15 @@ ul.glossary-terms-list {
   margin-bottom: 1.5625rem;
 }
 @media (min-width: 768px) {
-  #glossary-translations-add-form {
+  .glossary-translations-add-form {
     margin: 0 2.5rem;
   }
 }
-#glossary-translations-add-form .new-translation-language-container {
+.glossary-translations-add-form .new-translation-language-container {
   position: relative;
   display: inline-block;
 }
-#glossary-translations-add-form .new-translation-language-container i {
+.glossary-translations-add-form .new-translation-language-container i {
   position: absolute;
   right: 1.25rem;
   top: calc(50% - 7.5px);
@@ -381,7 +381,7 @@ ul.glossary-terms-list {
   color: #828282;
   pointer-events: none;
 }
-#glossary-translations-add-form .glossary-translations-add-button {
+.glossary-translations-add-form .glossary-translations-add-button {
 /* placeholder: */
   font-family: SourceSansPro-Light;
   font-size: 1.25rem;
@@ -403,14 +403,14 @@ ul.glossary-terms-list {
   cursor: pointer;
 }
 @media (min-width: 768px) {
-  #glossary-translations-add-form .glossary-translations-add-button {
+  .glossary-translations-add-form .glossary-translations-add-button {
     font-size: 1.625rem;
   }
 }
-#glossary-translations-add-form input {
+.glossary-translations-add-form input {
   margin: 0 0 0.9375rem 0;
 }
-#glossary-translations-add-form select {
+.glossary-translations-add-form select {
 /* border: */
 /* placeholder: */
   font-family: SourceSansPro-Light;
@@ -432,30 +432,30 @@ ul.glossary-terms-list {
   border-radius: 8px;
 }
 @media (min-width: 768px) {
-  #glossary-translations-add-form select {
+  .glossary-translations-add-form select {
     font-size: 1.625rem;
   }
 }
-#glossary-translations-add-form select ::-webkit-input-placeholder {
+.glossary-translations-add-form select ::-webkit-input-placeholder {
 /* WebKit, Blink, Edge */
   color: #828282;
 }
-#glossary-translations-add-form select :-moz-placeholder {
+.glossary-translations-add-form select :-moz-placeholder {
 /* Mozilla Firefox 4 to 18 */
   color: #828282;
   opacity: 1;
 }
-#glossary-translations-add-form select ::-moz-placeholder {
+.glossary-translations-add-form select ::-moz-placeholder {
 /* Mozilla Firefox 19+ */
   color: #828282;
   opacity: 1;
 }
-#glossary-translations-add-form select :-ms-input-placeholder {
+.glossary-translations-add-form select :-ms-input-placeholder {
 /* Internet Explorer 10-11 */
   color: #828282;
 }
 @media (min-width: 768px) {
-  #glossary-translations-add-form select {
+  .glossary-translations-add-form select {
     padding: 0.2625rem 0.6875rem;
   }
 }
