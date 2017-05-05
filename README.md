@@ -8,7 +8,9 @@ A PHP, MySQL, Twig miniature translations glossary.
 GlossZ allows the creation of miniature term glossaries. Authenticated users can create glossaries with 3-5 terms inside them and contribute term translations to their glossary or glossaries created by other users.
 ### Functionality
 ---
+
 ![glossz screenshot](https://github.com/toaster99/GlossZ/raw/master/repo_images/glossz_screenshot2.png)
+
 ##### Glossaries
 Authenticated and public users are able to browse and search glossaries. Searching glossaries does partial matches on the author's username and the title of the glossary.
 
@@ -23,13 +25,13 @@ For the server, GlossZ is built on PHP with the [Slim Framework](https://www.sli
 
 MySQL was chosen as it provides a robust database system that is widely supported on third-party hosting solutions.
 ##### Frontend
-GlossZ's frontend was developed using [Twig Templates](http://twig.sensiolabs.org), [Bootstrap 4](http://v4-alpha.getbootstrap.com), [jQuery](http://jquery.com), [FontAwesome](http://fontawesome.io),  [Google Fonts](https://fonts.google.com) and [SASS](http://sass-lang.com).
+GlossZ's frontend was developed using [Twig Templates](http://twig.sensiolabs.org), [Bootstrap 4](http://v4-alpha.getbootstrap.com), [jQuery](http://jquery.com), [FontAwesome](http://fontawesome.io),  [Google Fonts](https://fonts.google.com) and [Stylus](http://stylus-lang.com).
 
 Twig was chosen for this project due to its modular nature and ability to be rendered from PHP with variables passed from a controller. This allows for the implementation of routes within the PHP application that generate dynamic HTML templates rendered from Twig files.
 
-Bootstrap was used to speed up frontend implementation while maintaining a responsive, modern design. Customizations to the Bootstrap theme were done through CSS generated from compiled SASS files. The usage of SASS gives flexibility in the design by breaking it down into components and by setting fonts/colors through easily changed variables.
+Bootstrap was used to speed up frontend implementation while maintaining a responsive, modern design. Customizations to the Bootstrap theme were done through CSS generated from compiled Stylus files. The usage of Stylus gives flexibility in the design by breaking it down into components and by setting fonts/colors through easily changed variables.
 
-jQuery was leveraged to provide a seamless, AJAX driven interface. This allows users to perform actions (such as adding a translation to a glossary's term, or searching the glossary directory) and see results without performing a page post-back. jQuery was chosen over larger solutions (such as React or Vue.js) due to the size and time constraints of the project. React/Vue are wonderful for large-scale projects with numerous data-driven components, whereas jQuery is perfect for rapid development of projects that don't consist of as many components.
+jQuery was leveraged to provide AJAX driven components that can load without a post-back.
 
 Google Fonts and FontAwesome were used to make the design more aesthetically pleasing and to draw attention to certain interface elements.
 ##### Hosting
@@ -43,11 +45,16 @@ GlossZ  also implements the ProZ sign-on API. Using this method, a user's accoun
 
 ### SEO
 ---
-GlossZ was developed with SEO in mind. All pages include standard meta-tags for Open graph and Twitter. GlossZ was designed so that content is visible without relying on Javascript. CSS and Javascript files have been minified and combined to improve page loading. The site is fully responsive and has appropriate meta tags for mobile devices. 
+GlossZ was developed with SEO in mind. All pages include standard meta-tags for Open graph and Twitter. GlossZ was designed so that content is visible without relying on Javascript. CSS and Javascript files have been minified to improve page loading. The site is fully responsive and has appropriate meta tags for mobile devices. 
+
 ![sitemap](https://github.com/toaster99/GlossZ/raw/master/repo_images/sitemap.png)
+
 A dynamic sitemap.xml file is present for indexing. The sitemap file is generated based on the glossaries and users present on the site.
+
 ![twitter meta](https://github.com/toaster99/GlossZ/raw/master/repo_images/twittercardscreenshot.png)
-![facebook meta](https://github.com/toaster99/GlossZ/raw/master/repo_images/facebookcard.png)
+
+![facebook meta](https://github.com/toaster99/GlossZ/raw/master/repo_images/facebookmetatag.png)
+
 Images have been created and assigned as Meta tags for Facebook, Twitter, etc.
 
 ### Integration with ProZ services
@@ -57,4 +64,20 @@ The ProZ service 'KudoZ' is a perfect companion to GlossZ. KudoZ allows users to
 ### GlossZ API
 ---
 GlossZ was developed so that it could easily be used in other first-party or third-party services. Through the usage of Slim and routes, the application has an exposed REST API. This could be consumed by a mobile application or used to integrate GlossZ content into other web applications.
+
+The following routes are currently present for the API:
+- /api/terms                   GET     List of all terms            => json ModelResponse
+- /api/term/tid                GET     Term by id                   => json ModelResponse
+- /api/term/tid/translations   GET     Translations by term         => json ModelResponse
+- /api/glossaries              GET     List of all glossaries       => json ModelResponse
+- /api/glossary/gid            GET     Glossary by id               => json ModelResponse
+- /api/glossary/gid/terms      GET     Terms by glossary of id      => json ModelResponse
+- /api/languages               GET     List of all languages        => json ModelResponse
+- /api/users                   GET     List of all users            => json ModelResponse
+
+### Future Features
+---
+Given more time on this project, I would love to further enhance the user experience and value that the site can offer. More fine-tuned search would allow users to narrow down their search by translation or languages. A voting system would allow better translations to rise above those of lesser quality. A commenting system would allow users to collobrate and make suggestions on a glossary's content (this would also go well with the ability to share ownership of a glossary). Categorization of glossaries would be beneficiual to SEO and allow users to find glossaries faster.
+
+If the restriction of 3-5 terms was removed and the scope of this application was slightly expanded it could be used as a collaborative translation list platform. If users were able to upload documents, media, sentences, terms that center around a shared topic, other users could provide translations and discussion. For example, a list about "Visiting Taiwan" could have pictures of bus instructions, train announcements, bike rental instructions and phrases for ordering food all translated to various languages for future travellers. These lists would be content rich and target many different niches in numerous languages. Google would love that.
 
