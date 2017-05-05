@@ -4,10 +4,11 @@
 [glossz.whotofollow.co](glossz.whotofollow.co)
 
 A PHP, MySQL, Twig miniature translations glossary.
-![glossz logo](https://github.com/toaster99/GlossZ/raw/master/repo_images/glossz_screenshot.png)
+![glossz screenshot](https://github.com/toaster99/GlossZ/raw/master/repo_images/glossz_screenshot.png)
 GlossZ allows the creation of miniature term glossaries. Authenticated users can create glossaries with 3-5 terms inside them and contribute term translations to their glossary or glossaries created by other users.
 ### Functionality
 ---
+![glossz screenshot](https://github.com/toaster99/GlossZ/raw/master/repo_images/glossz_screenshot2.png)
 ##### Glossaries
 Authenticated and public users are able to browse and search glossaries. Searching glossaries does partial matches on the author's username and the title of the glossary.
 
@@ -38,11 +39,16 @@ GlossZ is deployed on a VPS from [Cloudways](http://cloudways.com). GlossZ imple
 ---
 When a user creates an account on GlossZ, their username, email, and password are stored in the database. The password is hashed using the `password_hash` method. User states are stored in the PHP session. Certain areas or actions on the application are protected by a custom Slim middleware component that verifies a user is authenticated.
 
-GlossZ  also implements the ProZ sign-on API. Using this method, a user's account is created as normal on login, but instead of being assigned a password it is linked to their ProZ account.
+GlossZ  also implements the ProZ sign-on API. Using this method, a user's account is created as normal on login but the user is authenticated through the O-Auth API.
 
 ### SEO
 ---
-GlossZ was developed with SEO in mind. All pages include standard meta-tags for Open graph and Twitter. [Google structured data](https://developers.google.com/search/docs/guides/intro-structured-data?visit_id=1-636294135622044242-3223157338&hl=en&rd=1) is also implemented to improve appearance within search engines. GlossZ was designed so that content is visible without relying on Javascript. CSS and Javascript files have been minified and combined to improve page loading. The site is fully responsive and has appropriate meta tags for mobile devices. A sitemap.xml file is present for indexing.
+GlossZ was developed with SEO in mind. All pages include standard meta-tags for Open graph and Twitter. GlossZ was designed so that content is visible without relying on Javascript. CSS and Javascript files have been minified and combined to improve page loading. The site is fully responsive and has appropriate meta tags for mobile devices. 
+![sitemap](https://github.com/toaster99/GlossZ/raw/master/repo_images/sitemap.png)
+A dynamic sitemap.xml file is present for indexing. The sitemap file is generated based on the glossaries and users present on the site.
+![twitter meta](https://github.com/toaster99/GlossZ/raw/master/repo_images/twittercardscreenshot.png)
+![facebook meta](https://github.com/toaster99/GlossZ/raw/master/repo_images/facebookcard.png)
+Images have been created and assigned as Meta tags for Facebook, Twitter, etc.
 
 ### Integration with ProZ services
 ---
