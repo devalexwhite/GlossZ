@@ -5,13 +5,13 @@
         <h4>{{ self.value }}</h4>
     </div>
 
-    <div class="glossary-terms-term-translations" term-id="{{ self.id }}">
+    <div class="glossary-terms-term-translations" termid="{{ self.id }}">
             {{ include('glossary-term-translations.twig', {
                 translations: term.translations
             }, with_context = false) }}
     </div>
     {% if session_id %}
-        <div class="glossary-terms-term-contribute-form glossary-terms-term-card" term-id="{{ self.id }}">
+        <div class="glossary-terms-term-contribute-form glossary-terms-term-card" termid="{{ self.id }}">
             <div class="term-card-title">
                 <span>Contribute Translation</span>
             </div>
@@ -19,7 +19,7 @@
                 {{ include('glossary-translations-add-form.twig', {
                     term_id: self.id,
                     languages: languages
-                }, with_context = false) }}
+                }) }}
             </div>
         </div>
     {% endif %}

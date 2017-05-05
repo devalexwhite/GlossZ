@@ -243,8 +243,7 @@ $app->group("/term", function() {
             "errors" => $result->getErrors(),
             "values" => $result->getValues()
         ]);
-    })  ->add(new \Glossz\Helpers\AuthMiddleware($this->getContainer()))
-        ->add(\Glossz\Model\Translation::validate());
+    })  ->add(new \Glossz\Helpers\AuthMiddleware($this->getContainer()));
 });
 
 // Glossary routes

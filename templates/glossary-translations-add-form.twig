@@ -1,8 +1,8 @@
 {% block add_translation_form %}
-    <form class="glossary-translations-add-form" term-id="{{ term_id }}">
-        <input type="text" placeholder="Translated term" name="value"/>
+    <form class="glossary-translations-add-form" termid="{{ term_id }}">
+        <input type="text" class="new-translation-value" placeholder="Translated term" name="value" termid="{{ term_id }}"/>
         <div class="new-translation-language-container">
-            <select id="new-translation-language" name="language_id">
+            <select class="new-translation-language" name="language_id" termid="{{ term_id }}">
                 {% for language in languages %}
                     <option value="{{ language.id }}">
                         {{ language.full_name }}
@@ -11,7 +11,7 @@
             </select>
             <i class="fa fa-arrow-circle-down" aria-hidden="true"></i>
         </div>
-        <div class="glossary-translations-add-button" term-id="{{ term_id }}">
+        <div class="glossary-translations-add-button" termid="{{ term_id }}">
             Add translation
         </div>
     </form>

@@ -54,14 +54,15 @@
         // clones the term card when the term is succesfully added.
         //
         $(document).on('click','.glossary-translations-add-button', function() {
-            let termID = $(this).parent(".glossary-translations-add-form").attr('term-id')
-            console.log(termID)
+            let termID = $(this).parent(".glossary-translations-add-form").attr('termid')
 
+            var data = "language_id=" + $(".new-translation-language[termid='" + termID + "']").val()
+            data += "&value=" + $(".new-translation-value[termid='" + termID + "']").val()
 
             $.ajax({
                 type: "POST",
                 url: "/term/" + termID + "/translation",
-                data: $(".glossary-translations-add-form[term-id='" + termID +"']").serialize()
+                data: data
             })
             .done(function(data) {
                 if(data && data.errors && data.errors.length > 0) {
@@ -73,7 +74,7 @@
                         url: "/term/" + termID + "/translation"
                     })
                     .done(function(twigData) {
-                        $(".glossary-terms-term-translations[term-id='" + termID + "']").html(twigData)
+                        $(".glossary-terms-term-translations[termid='" + termID + "']").html(twigData)
                     })
                 }
             })
