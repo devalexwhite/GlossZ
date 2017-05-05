@@ -8,9 +8,9 @@ environments:
     production:
         adapter: mysql
         host: localhost
-        name: production_db
-        user: root
-        pass: ''
+        name: thszhnzmpj
+        user: thszhnzmpj
+        pass: '8sTXxXf9ed'
         port: 3306
         charset: utf8
 
