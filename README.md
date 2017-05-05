@@ -8,7 +8,9 @@ A PHP, MySQL, Twig miniature translations glossary.
 GlossZ allows the creation of miniature term glossaries. Authenticated users can create glossaries with 3-5 terms inside them and contribute term translations to their glossary or glossaries created by other users.
 ### Functionality
 ---
+
 ![glossz screenshot](https://github.com/toaster99/GlossZ/raw/master/repo_images/glossz_screenshot2.png)
+
 ##### Glossaries
 Authenticated and public users are able to browse and search glossaries. Searching glossaries does partial matches on the author's username and the title of the glossary.
 
@@ -44,10 +46,15 @@ GlossZ  also implements the ProZ sign-on API. Using this method, a user's accoun
 ### SEO
 ---
 GlossZ was developed with SEO in mind. All pages include standard meta-tags for Open graph and Twitter. GlossZ was designed so that content is visible without relying on Javascript. CSS and Javascript files have been minified and combined to improve page loading. The site is fully responsive and has appropriate meta tags for mobile devices. 
+
 ![sitemap](https://github.com/toaster99/GlossZ/raw/master/repo_images/sitemap.png)
+
 A dynamic sitemap.xml file is present for indexing. The sitemap file is generated based on the glossaries and users present on the site.
+
 ![twitter meta](https://github.com/toaster99/GlossZ/raw/master/repo_images/twittercardscreenshot.png)
-![facebook meta](https://github.com/toaster99/GlossZ/raw/master/repo_images/facebookcard.png)
+
+![facebook meta](https://github.com/toaster99/GlossZ/raw/master/repo_images/facebookmetatag.png)
+
 Images have been created and assigned as Meta tags for Facebook, Twitter, etc.
 
 ### Integration with ProZ services
