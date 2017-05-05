@@ -406,6 +406,108 @@ $app->group("/user", function() {
         );
     });
 
+    $this->get('/login/proz', function($request, $response, $args) {
+        $modelResponse = new \Glossz\Model\ModelResponse($this['db']);
+        $userModel = new \Glossz\Model\User($this['db']);
+
+        $req_url = $this->get('settings')['prozapi']['auth_url'];
+        $oauth_url = $this->get('settings')['prozapi']['oauth_url'];
+        $user_url = $this->get('settings')['prozapi']['user_url'];
+        $conskey = $this->get('settings')['prozapi']['conskey'];
+        $conssec = $this->get('settings')['prozapi']['conssec'];
+        $callback = "http://glossz.dev/user/login/proz";
+
+        $body = $request->getParsedBody();
+
+        if(null == ($request->getParam("code"))) {
+            return $response->withHeader('Location', 
+            $req_url . "client_id=" . $conskey . "&redirect_uri=" . $callback);
+        }
+        elseif(!isset($body["access_token"])) {
+            $code = $request->getParam("code");
+
+            $data_string =  "grant_type=authorization_code&" .
+                            "code=" . $code . "&".
+                            "redirect_uri=" . $callback;
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $oauth_url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_USERPWD, "$conskey:$conssec");
+            curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+            curl_setopt($ch,CURLOPT_POST, 3);
+            curl_setopt($ch,CURLOPT_POSTFIELDS, $data_string);
+            $output = curl_exec($ch);
+            $info = curl_getinfo($ch);
+
+            $output = json_decode($output);
+
+            curl_close($ch);        
+            if(isset($output->access_token)) {
+                // GOT THE TOKEN!!!!!!!!! :-D
+                $ch2 = curl_init();
+                curl_setopt($ch2, CURLOPT_URL, $user_url);
+                curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);                        
+
+                curl_setopt($ch2, CURLOPT_HTTPHEADER, array(
+                    'Authorization: Bearer ' . $output->access_token
+                ));
+
+                $user_info = curl_exec($ch2);
+                $info2 = curl_getinfo($ch2);    
+
+                $user_info = json_decode($user_info);
+
+                if(isset($user_info->email)) {
+                    //Houston we have an email
+                    $userR = $userModel->listOneByEmail($user_info->email);
+
+                    if($userR->hasErrors()) {
+                        $modelResponse->addErrors($userR->getErrors());
+                    }
+                    else {
+                        if(null != ($userR->getValues())) {
+                            if (session_status() == PHP_SESSION_NONE) {
+                                session_start();
+                            }
+
+                            $user = $userR->getValues()[0];
+
+                            $_SESSION["username"] = $user["username"];
+                            $_SESSION["id"] = $user["id"];
+                        }
+                        else {
+                            $userModel->create([
+                                "password" => "",
+                                "username" => $user_info->email,
+                                "email" => $user_info->email
+                            ]);
+                        }
+                    }
+                }
+                else {
+                    $modelResponse->addErrors([
+                        "Error" => [
+                            "We had trouble communicating with ProZ. Please try again."
+                        ]
+                    ]);
+                }
+            }
+        }
+
+
+        if(!$modelResponse->hasErrors()) {
+            return $response->withHeader('Location', "/user");
+        }
+        else {
+            return $this->renderer->render(
+                $response, 'login.twig', [
+                    "errors" => $result->getErrors()
+                ]
+            );
+        }
+    });
+
     $this->get('/logout', function($request, $response, $args) {
         $userModel = new \Glossz\Model\User($this['db']);
         $result = $userModel->logout();

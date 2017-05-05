@@ -1,10 +1,10 @@
 .signup-signin-container {
-    margin: 0 1.5625rem;
+    margin: 0 1.5625rem 3.125rem 0;
 
      @media(min-width: 768px) {
          width: 30rem;
 
-         margin: 0 auto;
+         margin: 0 auto 3.125rem auto;
      }
 
      form {
@@ -39,7 +39,20 @@
                 padding: .2625rem .6875rem;                 
              }
         }
+
      }
+     
+    .signup-signin-or-bar {
+        position: relative;
+        width: 100%;
+        text-align: center;
+    }
+
+    a {
+        &:hover {
+            text-decoration: none;
+        }
+    }
 
     .submit-button {
         {inputFont}
@@ -53,13 +66,21 @@
         width: 100%;
 
         padding: .375rem 0;
-        margin-bottom: 3.125rem;
+        margin-bottom: 1.575rem;
 
         /* border: */
         background: $site-primary;
         border-radius: 8px;
 
         cursor: pointer;
+
+        &.proz-login {
+            margin-top: 1.575rem;  
+
+            background-color: white; 
+            color: $site-primary;
+            border: solid 1px $site-primary;
+        }
     }
 }
 

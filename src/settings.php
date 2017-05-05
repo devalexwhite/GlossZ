@@ -30,6 +30,13 @@ return [
             'dbname' => 'glossz',
             'user' => 'alex',
             'pass' => 'alex'
+        ],
+        'prozapi' => [
+            'auth_url' => ' https://www.proz.com/oauth/authorize?response_type=code&scope=user.email&',
+            'conskey' => 'a987b04bd8eaac13786ddba20f285eed8049856d',
+            'conssec' => '6fe7fb6c1924af288444781514eeba73e0bda619',
+            'oauth_url' => 'https://www.proz.com/oauth/token',
+            'user_url' => 'https://api.proz.com/v2/user'
         ]
     ],
 ];

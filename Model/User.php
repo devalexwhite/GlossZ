@@ -6,6 +6,28 @@
 
 
     class User extends Model {
+        public function listOneByEmail($email): ModelResponse {
+            $modelResponse = new ModelResponse();
+
+            try {
+                $stmt = $this->db->prepare("SELECT id,username,email FROM user
+                    WHERE email=:email");
+                
+                $stmt->execute([
+                    "email" => $email
+                ]);
+
+                $modelResponse->addValues($stmt->fetchAll());
+            }
+            catch(PDOException $Exception) {
+                $modelResponse->addErrors([
+                    "PDOException" => [$Exception->getMessage()]
+                ]);
+            }
+
+            return $modelResponse; 
+        }
+
         public function listOne($id): ModelResponse {
             $modelResponse = new ModelResponse();
 
