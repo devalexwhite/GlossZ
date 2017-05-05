@@ -498,7 +498,7 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/public\/scripts\/glossary-create-min.js",
-		"oF": 0,
+		"oF": 1,
 		"sC": 3,
 		"tS": 1
 		},
@@ -516,7 +516,7 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/public\/scripts\/glossary-min.js",
-		"oF": 0,
+		"oF": 1,
 		"sC": 3,
 		"tS": 1
 		},
@@ -525,6 +525,15 @@
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/public\/scripts\/jquery.min-min.js",
+		"oF": 1,
+		"sC": 3,
+		"tS": 1
+		},
+	"\/public\/scripts\/tether.min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/public\/scripts\/tether.min-min.js",
 		"oF": 1,
 		"sC": 3,
 		"tS": 1
@@ -594,6 +603,12 @@
 		"oF": 1,
 		"oS": 0
 		},
+	"\/public\/styles\/bootstrap-grid.min.css.map": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/public\/styles\/bootstrap-grid.min.css.map",
+		"oF": 0
+		},
 	"\/public\/styles\/bootstrap-reboot.min.css": {
 		"aP": 1,
 		"bl": 0,
@@ -604,6 +619,12 @@
 		"oF": 1,
 		"oS": 0
 		},
+	"\/public\/styles\/bootstrap-reboot.min.css.map": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/public\/styles\/bootstrap-reboot.min.css.map",
+		"oF": 0
+		},
 	"\/public\/styles\/bootstrap.min.css": {
 		"aP": 1,
 		"bl": 0,
@@ -612,6 +633,32 @@
 		"oA": 0,
 		"oAP": "\/public\/styles\/bootstrap.min-min.css",
 		"oF": 1,
+		"oS": 0
+		},
+	"\/public\/styles\/bootstrap.min.css.map": {
+		"ft": 8192,
+		"oA": 2,
+		"oAP": "\/public\/styles\/bootstrap.min.css.map",
+		"oF": 0
+		},
+	"\/public\/styles\/tether-theme-basic.min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/public\/styles\/tether-theme-basic.min-min.css",
+		"oF": 0,
+		"oS": 0
+		},
+	"\/public\/styles\/tether.min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/public\/styles\/tether.min-min.css",
+		"oF": 0,
 		"oS": 0
 		},
 	"\/public\/styles\/widgets\/_glossaries-list.styl": {
@@ -781,6 +828,17 @@
 		"rFN": 0,
 		"uCM": 0
 		},
+	"\/repo_images\/facebookmetatag.png": {
+		"ft": 32768,
+		"iS": 121731,
+		"oA": 0,
+		"oAP": "\/repo_images\/facebookmetatag.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/repo_images\/glossz_logo.png": {
 		"ft": 32768,
 		"iS": 4797,
@@ -797,6 +855,39 @@
 		"iS": 68903,
 		"oA": 0,
 		"oAP": "\/repo_images\/glossz_screenshot.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/repo_images\/glossz_screenshot2.png": {
+		"ft": 32768,
+		"iS": 60493,
+		"oA": 0,
+		"oAP": "\/repo_images\/glossz_screenshot2.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/repo_images\/sitemap.png": {
+		"ft": 32768,
+		"iS": 98003,
+		"oA": 0,
+		"oAP": "\/repo_images\/sitemap.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/repo_images\/twittercardscreenshot.png": {
+		"ft": 32768,
+		"iS": 120615,
+		"oA": 0,
+		"oAP": "\/repo_images\/twittercardscreenshot.png",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
