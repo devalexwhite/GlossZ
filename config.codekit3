@@ -941,10 +941,10 @@
 		"oAP": "\/tests\/Functional\/BaseTestCase.php",
 		"oF": 0
 		},
-	"\/tests\/Functional\/GlossaryTest.php": {
+	"\/tests\/Functional\/LoginTest.php": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/tests\/Functional\/GlossaryTest.php",
+		"oAP": "\/tests\/Functional\/LoginTest.php",
 		"oF": 0
 		},
 	"\/tests\/Functional\/SignupTest.php": {
