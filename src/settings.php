@@ -41,7 +41,8 @@ return [
             'conskey' => 'a987b04bd8eaac13786ddba20f285eed8049856d',
             'conssec' => '6fe7fb6c1924af288444781514eeba73e0bda619',
             'oauth_url' => 'https://www.proz.com/oauth/token',
-            'user_url' => 'https://api.proz.com/v2/user'
+            'user_url' => 'https://api.proz.com/v2/user',
+            'callback_url' => 'https://glossz.whotofollow.co/user/login/proz'
         ]
     ],
 ];

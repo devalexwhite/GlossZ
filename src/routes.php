@@ -617,7 +617,7 @@ $app->group("/user", function() {
         $user_url = $this->get('settings')['prozapi']['user_url'];
         $conskey = $this->get('settings')['prozapi']['conskey'];
         $conssec = $this->get('settings')['prozapi']['conssec'];
-        $callback = "http://glossz.dev/user/login/proz";
+        $callback = $this->get('settings')['prozapi']['callback_url'];
 
         $body = $request->getParsedBody();
 

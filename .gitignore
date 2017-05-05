@@ -3,3 +3,4 @@
 !/logs/README.md
 /cache/*
 /.vscode/
+/src/settings.php
