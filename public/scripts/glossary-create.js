@@ -3,7 +3,8 @@
         // let glossary_term_id = 3;
 
         //
-        // Handle the button for deleting a term from a glossary
+        // Handle the button for deleting a term from a glossary. Enables
+        // checks so the number of terms is between 3 and 5.
         //
         $(document).on('click','.glossary-create-term-delete',function() {
             event.preventDefault()
@@ -22,7 +23,9 @@
         })
 
         //
-        // Handle the button for adding a term to a new glossay
+        // Handle the button for adding a term to a new glossary by cloning the 
+        // template card. Has checks so that the number of terms is between
+        // 3 and 5.
         //
         $(".glossary-create-add-term").click(function(event) {
             event.preventDefault()
@@ -44,9 +47,10 @@
                 .appendTo('.glossary-create-terms-form-group')
         })
 
-        // //
-        // // Handle the submit button for creating a glossay
-        // //
+        //
+        // Handle the submit button for creating a glossay. Sets unique 'name'
+        // attributes on each input and then submits the form.
+        // 
         $(".glossary-create-submit").click(function() {
             $(".glossary-term-card").not(".template").each(function(e) {
                 let term = $(this).find(".glossary-create-term-value").first()

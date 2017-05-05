@@ -1,4 +1,9 @@
 <?php
+
+//======================================================================
+// Provides application settings. There is a seperate file for dev and prod.
+//======================================================================
+
 return [
     'settings' => [
         'displayErrorDetails' => true, // set to false in production

@@ -4,6 +4,12 @@
     
     use Respect\Validation\Validator as v;
 
+    //======================================================================
+    // Language Model: Provides functions for accessing languages
+    //
+    //      Functions: listAll()                - List all languages
+    //======================================================================
+
     class Language extends Model {
     public function listAll(): ModelResponse {
             $modelResponse = new ModelResponse();

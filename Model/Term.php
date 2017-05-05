@@ -4,6 +4,18 @@
     
     use Respect\Validation\Validator as v;
 
+    //======================================================================
+    // Term Model: Provides functions for creating and accessing terms
+    //
+    //      Functions: listOne($id)                       - Given an ID, list the term
+    //                 listAll()                          - List all terms
+    //                 listAllByGlossary($glossary_id)    - List all terms by glossary
+    //                 update($id,$args)                  - Update term with id using values
+    //                                            in args
+    //                 create($args)                      - Create a term using values in args
+    //                 validate()                         - Provides validation for middleware
+    //======================================================================
+
     class Term extends Model {
     public function listAll(): ModelResponse {
             $modelResponse = new ModelResponse();

@@ -2,6 +2,18 @@
 
     namespace Glossz\Model;
 
+    //======================================================================
+    //  ModelResponse: Used for communicating results/errors of model operations
+    //
+    //      Functions: construct($values,$errors)   - Constructs the response using optional values
+    //                 addErrors($errors)           - Appends errors to the model
+    //                 addValues($values)           - Appends values to the model
+    //                 setErrors($errors)           - Sets the model's errors
+    //                 getErrors()                  - Returns the model's errors
+    //                 getValues()                  - Returns the model's values
+    //                 hasErrors()                  - Returns true/false if model has errors
+    //======================================================================
+
     class ModelResponse {
         protected $values;
         protected $errors;

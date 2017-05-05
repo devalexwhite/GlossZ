@@ -3,6 +3,12 @@
 namespace Glossz\Helpers;
 
 
+//======================================================================
+// AuthMiddleware: Provides middleware for protecting routes behind authentication
+//
+//      Functions: construct($container)              - Sets the container
+//                 invoke()                           - Processes the current request
+//======================================================================
 
 class AuthMiddleware {
     protected $container;

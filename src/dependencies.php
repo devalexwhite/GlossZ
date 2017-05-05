@@ -1,4 +1,10 @@
 <?php
+
+//======================================================================
+// This file configures the slim container by setting up the Twig rendered,
+// database and logging functionality.
+//======================================================================
+
 // DIC configuration
 
 $container = $app->getContainer();

@@ -5,6 +5,19 @@
     use Respect\Validation\Validator as v;
 
 
+    //======================================================================
+    // User Model: Provides functions for creating and accessing users
+    //
+    //      Functions: listOne($id)                       - Given an ID, list the user
+    //                 listOneByEmail($email)             - Given an email, list the user
+    //                 listAll()                          - List all glossaries
+    //                 userLoggedIn()                     - Returns true/false if user logged in
+    //                 login($args)                       - Logs a user in using values is args
+    //                 logout()                           - Logs the current user out
+    //                 create($args)                      - Create a user using values in args
+    //                 validate()                         - Provides validation for middleware
+    //======================================================================
+
     class User extends Model {
         public function listOneByEmail($email): ModelResponse {
             $modelResponse = new ModelResponse();

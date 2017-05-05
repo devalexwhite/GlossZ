@@ -2,7 +2,175 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-// Route for sitemap
+// API Routes
+//=====================================================================================
+//      - /api/terms                   GET     List of all terms            => json ModelResponse
+//      - /api/term/tid                GET     Term by id                   => json ModelResponse
+//      - /api/term/tid/translations   GET     Translations by term         => json ModelResponse
+//      - /api/glossaries              GET     List of all glossaries       => json ModelResponse
+//      - /api/glossary/gid            GET     Glossary by id               => json ModelResponse
+//      - /api/glossary/gid/terms      GET     Terms by glossary of id      => json ModelResponse
+//      - /api/languages               GET     List of all languages        => json ModelResponse
+//      - /api/users                   GET     List of all users            => json ModelResponse
+//=====================================================================================
+$app->group("/api", function() {
+    $this->get("/terms", function($request, $response, $args) {
+        $modelResponse = new \Glossz\Model\ModelResponse();
+
+        $termModel = new \Glossz\Model\Term($this['db']);
+        $terms = $termModel->listAll();
+
+        if($terms->hasErrors()) {
+            $modelResponse->addErrors($terms->getErrors());
+        }
+
+        $modelResponse->addValues($terms->getValues());
+
+        $statusCode = $modelResponse->hasErrors() ? 500 : 200;
+
+        return $response->withJson([
+            "errors" => $modelResponse->getErrors(),
+            "values" => $modelResponse->getValues()
+        ], $statusCode);
+    });
+    $this->get("/term/{tid}", function($request, $response, $args) {
+        $modelResponse = new \Glossz\Model\ModelResponse();
+
+        $termModel = new \Glossz\Model\Term($this['db']);
+        $terms = $termModel->listOne($args["tid"]);
+
+        if($terms->hasErrors()) {
+            $modelResponse->addErrors($terms->getErrors());
+        }
+
+        $modelResponse->addValues($terms->getValues());
+
+        $statusCode = $modelResponse->hasErrors() ? 500 : 200;
+
+        return $response->withJson([
+            "errors" => $modelResponse->getErrors(),
+            "values" => $modelResponse->getValues()
+        ], $statusCode);
+    });
+    $this->get("/term/{tid}/translations", function($request, $response, $args) {
+        $modelResponse = new \Glossz\Model\ModelResponse();
+
+        $translationModel = new \Glossz\Model\Translation($this['db']);
+        $translations = $translationModel->listAllByTerm($args["tid"]);
+
+        if($translations->hasErrors()) {
+            $modelResponse->addErrors($translations->getErrors());
+        }
+
+        $modelResponse->addValues($translations->getValues());
+
+        $statusCode = $modelResponse->hasErrors() ? 500 : 200;
+
+        return $response->withJson([
+            "errors" => $modelResponse->getErrors(),
+            "values" => $modelResponse->getValues()
+        ], $statusCode);
+    });
+    $this->get("/glossaries", function($request, $response, $args) {
+        $modelResponse = new \Glossz\Model\ModelResponse();
+
+        $glossaryModel = new \Glossz\Model\Glossary($this['db']);
+        $glossaries = $glossaryModel->listAll();
+
+        if($glossaries->hasErrors()) {
+            $modelResponse->addErrors($glossaries->getErrors());
+        }
+
+        $modelResponse->addValues($glossaries->getValues());
+
+        $statusCode = $modelResponse->hasErrors() ? 500 : 200;
+
+        return $response->withJson([
+            "errors" => $modelResponse->getErrors(),
+            "values" => $modelResponse->getValues()
+        ], $statusCode);
+    });
+    $this->get("/glossary/{gid}", function($request, $response, $args) {
+        $modelResponse = new \Glossz\Model\ModelResponse();
+
+        $glossaryModel = new \Glossz\Model\Glossary($this['db']);
+        $glossaries = $glossaryModel->listOne($args["gid"]);
+
+        if($glossaries->hasErrors()) {
+            $modelResponse->addErrors($glossaries->getErrors());
+        }
+
+        $modelResponse->addValues($glossaries->getValues());
+
+        $statusCode = $modelResponse->hasErrors() ? 500 : 200;
+
+        return $response->withJson([
+            "errors" => $modelResponse->getErrors(),
+            "values" => $modelResponse->getValues()
+        ], $statusCode);
+    });
+    $this->get("/glossary/{gid}/terms", function($request, $response, $args) {
+        $modelResponse = new \Glossz\Model\ModelResponse();
+
+        $termsModel = new \Glossz\Model\Term($this['db']);
+        $terms = $termsModel->listAllByGlossary($args["gid"]);
+
+        if($terms->hasErrors()) {
+            $modelResponse->addErrors($terms->getErrors());
+        }
+
+        $modelResponse->addValues($terms->getValues());
+
+        $statusCode = $modelResponse->hasErrors() ? 500 : 200;
+
+        return $response->withJson([
+            "errors" => $modelResponse->getErrors(),
+            "values" => $modelResponse->getValues()
+        ], $statusCode);
+    });
+    $this->get("/languages", function($request, $response, $args) {
+        $modelResponse = new \Glossz\Model\ModelResponse();
+
+        $languageModel = new \Glossz\Model\Language($this['db']);
+        $languages = $languageModel->listAll();
+
+        if($languages->hasErrors()) {
+            $modelResponse->addErrors($languages->getErrors());
+        }
+
+        $modelResponse->addValues($languages->getValues());
+
+        $statusCode = $modelResponse->hasErrors() ? 500 : 200;
+
+        return $response->withJson([
+            "errors" => $modelResponse->getErrors(),
+            "values" => $modelResponse->getValues()
+        ], $statusCode);
+    });
+    $this->get("/users", function($request, $response, $args) {
+        $modelResponse = new \Glossz\Model\ModelResponse();
+
+        $userModel = new \Glossz\Model\User($this['db']);
+        $users = $userModel->listAll();
+
+        if($users->hasErrors()) {
+            $modelResponse->addErrors($users->getErrors());
+        }
+
+        $modelResponse->addValues($users->getValues());
+
+        $statusCode = $modelResponse->hasErrors() ? 500 : 200;
+
+        return $response->withJson([
+            "errors" => $modelResponse->getErrors(),
+            "values" => $modelResponse->getValues()
+        ], $statusCode);
+    });
+});
+
+//=====================================================================================
+//      - /sitemap.xml      GET     Generates a xml dynamic sitemap     => sitemap.xml  
+//=====================================================================================
 $app->get("/sitemap.xml", function($request, $response, $args) {
     $glossaryModel = new \Glossz\Model\Glossary($this['db']);
     $userModel = new \Glossz\Model\User($this['db']);
@@ -21,7 +189,15 @@ $app->get("/sitemap.xml", function($request, $response, $args) {
     return $response->withHeader('Content-type', 'text/xml')->write($sitemap);
 });
 
+
+
 // Terms routes
+//=====================================================================================
+//      - /term/{tid}/translation     GET     Renders the translations list         => glossary-term-translations.twig
+//                                            HTML based on the provided term id       
+//      - /term/{id}/translation      POST    Creates a new translation for the     => modelResult JSON
+//                                            term with term id = tid
+//=====================================================================================
 $app->group("/term", function() {
     $this->get("/{tid}/translation", function($request, $response, $args) {
         $modelResponse = new \Glossz\Model\ModelResponse();
@@ -46,9 +222,9 @@ $app->group("/term", function() {
             ]
         ); 
     });
-    $this->post("/{id}/translation", function($request, $response, $args) {
+    $this->post("/{tid}/translation", function($request, $response, $args) {
         $translationModel = new \Glossz\Model\Translation($this['db']);
-        $term_id = $args['id'];
+        $term_id = $args['tid'];
 
          $result = new \Glossz\Model\ModelResponse();
 
@@ -72,6 +248,20 @@ $app->group("/term", function() {
 });
 
 // Glossary routes
+//=====================================================================================
+//      - /                        GET     Renders homepage HTML of glossaries         => glossaries.twig
+//                                         list. Can search with optional ?search
+//                                         param.      
+//      - /glossary                GET     Displays the form to create a glossary.     => glossary-create.twig
+//                                         Authenticated route.
+//      - /glossary                POST    Creates a glossary from POST data.          => Redirect to /glossary/{gid}
+//                                         Authenticated route.
+//      - /glossary/{id}           GET     Displays the glossary with provided id.     => glossary.twig
+//      - /glossary/{id}/delete    GET     Deletes the glossary with provided id.      => Redirect to /
+//                                         Authenticated route.
+//      - /glossary/{id}           POST    Updates the glossary with id with POST      => modelResult JSON
+//                                         values. Authenticated route.
+//=====================================================================================
 $app->group("", function() {
     $this->get('/', function($request, $response, $args) {
         $modelResponse = new \Glossz\Model\ModelResponse();
@@ -366,6 +556,18 @@ $app->group("", function() {
 });
 
 // User routes
+//=====================================================================================
+//      - /user                    GET     Renders the authenticated user's            => user-profile.twig
+//                                         profile page. Authenticated route.     
+//      - /user/login              GET     Displays the login form.                    => login.twig
+//      - /user/login/proz         GET     Starts the ProZ OAuth login.                => Redirect to /user/{id}
+//      - /user/login              POST    Processes the user login.                   => Redirect to /user/{id}
+//      - /user/signup             GET     Displays the signup form.                   => signup.twig
+//      - /user/signup             POST    Processes the user's signup and logs        => Redirect to /user/{id}
+//                                         the user in.
+//      - /user/{id}               GET     Displays the profile page for user with     => user-profile.twig
+//                                         user_id = id.
+//=====================================================================================
 $app->group("/user", function() {
     $this->get('', function($request, $response, $args) {
         $modelResponse = new \Glossz\Model\ModelResponse($this['db']);
@@ -558,7 +760,7 @@ $app->group("/user", function() {
 
         return $response->withHeader('Location', "/user");
     })->add(\Glossz\Model\User::validate());
-$this->get('/{id}', function($request, $response, $args) {
+    $this->get('/{id}', function($request, $response, $args) {
         $modelResponse = new \Glossz\Model\ModelResponse($this['db']);
         $userModel = new \Glossz\Model\User($this['db']);
         $glossaryModel = new \Glossz\Model\Glossary($this['db']);

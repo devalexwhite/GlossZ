@@ -3,7 +3,8 @@
         let edit_mode = false     
 
         //
-        // Handle the glossary edit/save button
+        // Handle the glossary edit/save button click. When saving
+        // the function makes an AJAX post call the the endpoint.
         //
         $(".glossary-enable-edit").click(function() {
             edit_mode = !edit_mode
@@ -34,7 +35,8 @@
         })
 
         //
-        // Handle the glossary delete button
+        // Handle the glossary delete button. Confirms the user wants to delete
+        // and then redirects to the delete route.
         //
         $(".glossary-delete").click(function() {
             var cResult = confirm("Are you sure you wish to delete this glossary?")
@@ -48,7 +50,8 @@
         })
 
         //
-        // Handle the addition of a new term
+        // Handle the addition of a new term. Makes an AJAX call the the endpoint,
+        // clones the term card when the term is succesfully added.
         //
         $(document).on('click','.glossary-translations-add-button', function() {
             let termID = $("#glossary-translations-add-form").attr('term-id')

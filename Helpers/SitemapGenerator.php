@@ -2,6 +2,13 @@
 
 namespace Glossz\Helpers;
 
+//======================================================================
+// Sitemap Generator: Dynamically generates an xml sitemap based on glossaries/users
+//
+//      Functions: construct($users, $glossaries)     - Sets the users and glossaries
+//                 invoke()                           - Generates and returns the sitemap content
+//======================================================================
+
 class SitemapGenerator {
 
     protected $users;

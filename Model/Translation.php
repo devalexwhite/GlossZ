@@ -4,6 +4,21 @@
     
     use Respect\Validation\Validator as v;
 
+    //======================================================================
+    // Translation Model: Provides functions for creating and accessing terms
+    //
+    //      Functions: listOne($id)                       - Given an ID, list the translation
+    //                 listAll()                          - List all glossaries
+    //                 listAllByGlossary($glossary_id)    - List all translations by glossary
+    //                 listAllByTerm($term_id)            - List all translations by term
+    //                 listAllByTermLanguage($term_id, $language_id)            
+    //                                                    - List all translations by term and language
+    //                 update($id,$args)                  - Update translation with id using values
+    //                                                      in args
+    //                 create($args)                      - Create a translation using values in args
+    //                 validate()                         - Provides validation for middleware
+    //======================================================================
+
     class Translation extends Model {
         public function listOne($id): ModelResponse {
             $modelResponse = new ModelResponse();

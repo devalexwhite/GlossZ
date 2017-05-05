@@ -4,6 +4,18 @@
     
     use Respect\Validation\Validator as v;
 
+    //======================================================================
+    // Glossary Model: Provides functions for creating and accessing glossaries
+    //
+    //      Functions: listOne($id)             - Given an ID, list the glossary
+    //                 listAll()                - List all glossaries
+    //                 listAllByUser($user_id)  - List all glossaries by user
+    //                 update($id,$args)        - Update glossary with id using values
+    //                                            in args
+    //                 create($args)            - Create a glossary using values in args
+    //                 validate()               - Provides validation for middleware
+    //======================================================================
+
     class Glossary extends Model {
         public function listOne($id): ModelResponse {
             $modelResponse = new ModelResponse();
